@@ -11,7 +11,7 @@ public class DataBase {
 
     public DataBase() throws SQLException {
         String address = "jdbc:postgresql://localhost:5432/JavaLab11";
-        connection = DriverManager.getConnection(address,"postgres","STUDENT");
+        connection = DriverManager.getConnection(address,"postgres","Zeus1234");
     }
 
     public Connection getConnection() {

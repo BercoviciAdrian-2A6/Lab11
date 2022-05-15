@@ -54,14 +54,16 @@ public class PersonDAO
         statement.execute("insert into persons (id, family_name, personal_name, cnp) values (" + getNewPersonId() + ", \'" + familyName + "\', \'" + personalName + "\', \'" + cnp + "\')");
     }
 
-    public static void updatePerson(String targetPersonCnp, String newFamilyName, String newPersonalName)
-    {
-        //todo
+    public static void updatePerson(String targetPersonCnp, String newFamilyName, String newPersonalName) throws SQLException {
+        Connection db_connection = Singleton.getInstance().getConnection();
+        Statement statement = db_connection.createStatement();
+        statement.execute("update persons set family_name = \'" + newFamilyName + "\', personal_name = \'" + newPersonalName + "\'where cnp = \'" + targetPersonCnp + "\' ");
     }
 
-    public static void deletePerson(String targetPersonCnp)
-    {
-
+    public static void deletePerson(String targetPersonCnp) throws SQLException {
+        Connection db_connection = Singleton.getInstance().getConnection();
+        Statement statement = db_connection.createStatement();
+        statement.execute("delete from persons where cnp = \'" + targetPersonCnp + "\'");
     }
 
     public static PersonEntity getPersonByCnp(String cnp) throws SQLException
