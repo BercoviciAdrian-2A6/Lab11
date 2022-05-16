@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping("/api/users")
 public class UserController {
 
+    //localhost:8081/api/users
     @GetMapping
     public List<PersonEntity> getAllUsers() throws SQLException {
 
@@ -26,11 +27,13 @@ public class UserController {
 
     }
 
+    //localhost:8081/api/users?cnp=AndreiPopa
     @DeleteMapping
     public void deleteByCnp(@RequestParam(value = "cnp") String cnp) throws SQLException {
         PersonDAO.deletePerson(cnp);
     }
 
+    //localhost:8081/api/users?cnp=AndreiPopa
     @PutMapping
     public void updateNameByCnp(@RequestBody NameChangeEntity nameChangeEntity) throws SQLException {
         PersonDAO.updatePerson(nameChangeEntity.getCnp(), nameChangeEntity.getNewFamilyName(), nameChangeEntity.getNewPersonalName());
