@@ -107,7 +107,8 @@ public class RelationshipDAO
 
         ArrayList<PersonEntity> mostPopular = new ArrayList<>();
 
-        for (int popIndex = 0; popIndex < k; popIndex++)
+        int min = Math.min(k,popularityIndex.size());
+        for (int popIndex = 0; popIndex < min; popIndex++)
         {
             mostPopular.add( popularityIndex.get(popIndex).getPerson() );
         }
